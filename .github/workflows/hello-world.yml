@@ -18,16 +18,21 @@ jobs:
     # etapas
     steps:
       # nome da etapa
-      # - name: Clonar repositório
-      #   # clonar o repositório com variáveis de ambiente configuradas
-      #   uses: actions/checkout@v4
+      - name: Clonar repositório
+        # clonar o repositório com variáveis de ambiente configuradas
+        uses: actions/checkout@v4
       
-      # - name: Configurar a versão do Python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.11.9'
+      - name: Configurar a versão do Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.9'
 
       # nome da etapa
-      - name: Dizer "Hello"
+      - name: instalar lib
         # comando a executar
-        run: echo "Hello, World!"
+        run: pip install pytest
+
+      # nome da etapa
+      - name: rodar testes
+        # comando a executar
+        run: pytest
